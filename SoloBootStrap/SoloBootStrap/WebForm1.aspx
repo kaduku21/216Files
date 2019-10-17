@@ -18,6 +18,7 @@
         </div>
         <div>
             <h4 class="text-center">Welcome to the contact page.</h4>
+            <p class="text-center">Tell us a little bit about yourself</p>
         </div>
     </header>
     <main class="container">
@@ -25,32 +26,56 @@
     <div class="offset-sm-4">
         <div class="form-group">
             <label class="col-sm-6 ">Name</label>
-            <asp:TextBox ID="txtName" runat="server" CssClass="form-control col-sm-6">  </asp:TextBox>
+            <asp:TextBox ID="txtName" runat="server" CssClass="form-control col-sm-6" data-toggle="tooltip" 
+                dataplacement="top" title="Enter your name here">  </asp:TextBox>
+        </div>
+        <div class="col-sm-6 text-center">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name is required" 
+                Display="Dynamic" ForeColor="Red" ControlToValidate="txtName"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label class="col-sm-6 control-label">Age</label>
-            <asp:TextBox ID="txtAge" runat="server" CssClass="form-control col-sm-6"></asp:TextBox>
+            <asp:TextBox ID="txtAge" runat="server" CssClass="form-control col-sm-6" data-toggle="tooltip" 
+                dataplacement="top" title="Enter your age here"></asp:TextBox>
+        </div>
+        <div class="col-sm-6 text-center">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Age is required" 
+                Display="Dynamic" ForeColor="Red"
+                ControlToValidate="txtAge"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label class="col-sm-6 control-label">Email</label>
-            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control col-sm-6"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control col-sm-6" data-toggle="tooltip" 
+                dataplacement="top" title="Enter your email address here"></asp:TextBox>
         </div>
+        <div class="col-sm-6 text-center">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Email is required" Display="Dynamic"
+                ForeColor="Red" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
+            </div>
         <div class="form-group">
             <label class="col-sm-6 control-label">Favorite Color</label>
-            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control col-sm-6">
-                <asp:ListItem Text="Red" Value="1"></asp:ListItem>
-                <asp:ListItem Text="Orange" Value="2"></asp:ListItem>
-                <asp:ListItem Text="Yellow" Value="3"></asp:ListItem>
-                <asp:ListItem Text="Green" Value="4"></asp:ListItem>
-                <asp:ListItem Text="Blue" Value="5"></asp:ListItem>
-                <asp:ListItem Text="Violet" Value="6"></asp:ListItem>
+            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control col-sm-6" data-toggle="tooltip" 
+                dataplacement="top" title="Select your favorite color">
+                <asp:ListItem Text="Please choose a color" Value=""></asp:ListItem>
+                <asp:ListItem Text="Red" Value="Red"></asp:ListItem>
+                <asp:ListItem Text="Orange" Value="Orange"></asp:ListItem>
+                <asp:ListItem Text="Yellow" Value="Yellow"></asp:ListItem>
+                <asp:ListItem Text="Green" Value="Green"></asp:ListItem>
+                <asp:ListItem Text="Blue" Value="Blue"></asp:ListItem>
+                <asp:ListItem Text="Violet" Value="Violet"></asp:ListItem>
             </asp:DropDownList>
         </div>
+       <div class="col-sm-6 text-center">
+           <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please select a color from the list"
+               Display="Dynamic" ForeColor="Red" ControlToValidate="DropDownList1"></asp:RequiredFieldValidator>
+       </div>
         <div>
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit Info" CssClass="btn btn-info"/>
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit Info" CssClass="btn btn-info offset-md-2 " OnClick="btnSubmit_Click"/>
         </div>
     </div>
-
+        <div class="text-center ">
+            <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-primary"></asp:Label>
+        </div>
     </form>
     </main>
 </body>
